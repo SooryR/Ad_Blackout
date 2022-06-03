@@ -1,0 +1,35 @@
+{
+    "name": "Ad Blackout",
+    "description": "Remove ads even if there's a adblock detector",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "storage", "tabs", "activeTab", "scripting","webNavigation","runtime"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "options_page": "options.html",
+    "icons": {
+        "16": "images/ChromeLogo16.png",
+        "48": "images/ChromeLogo48.png",
+        "128": "images/ChromeLogo128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/ChromeLogo16.png",
+            "48": "images/ChromeLogo48.png",
+            "128": "images/ChromeLogo128.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.wcofun.com/*"],
+            "css": ["main.css"]
+        }
+    ]
+}
